@@ -36,7 +36,7 @@ void ofApp::draw() {
 		ofPushMatrix();
 		ofTranslate(object.getPosition());
 		ofDrawBitmapStringHighlight(ofToString(finder.getLabel(i)), 0, 0);
-		ofDrawLine(ofVec2f(), toOf(finder.getVelocity(i)) * 10);
+		ofLine(ofVec2f(), toOf(finder.getVelocity(i)) * 10);
 		ofPopMatrix();
 	}
 }

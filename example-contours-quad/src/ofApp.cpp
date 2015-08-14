@@ -52,16 +52,16 @@ void ofApp::draw() {
 	ofTranslate(8, 75);
 	ofFill();
 	ofSetColor(0);
-	ofDrawRectangle(-3, -3, 64+6, 64+6);
+	ofRect(-3, -3, 64+6, 64+6);
 	ofSetColor(targetColor);
-	ofDrawRectangle(0, 0, 64, 64);
+	ofRect(0, 0, 64, 64);
 	
 	ofSetColor(255);
 	unwarped.draw(0, 70);
 }
 
 void ofApp::mousePressed(int x, int y, int button) {
-	targetColor = cam.getPixels().getColor(x, y);
+	targetColor = cam.getPixelsRef().getColor(x, y);
 	contourFinder.setTargetColor(targetColor, TRACK_COLOR_HSV);
 }
 

@@ -43,9 +43,9 @@ void ofApp::draw() {
 	float diffBlue = diffMean[2];
 	
 	ofSetColor(255, 0, 0);
-	ofDrawRectangle(0, 0, diffRed, 10);
+	ofRect(0, 0, diffRed, 10);
 	ofSetColor(0, 255, 0);
-	ofDrawRectangle(0, 15, diffGreen, 10);
+	ofRect(0, 15, diffGreen, 10);
 	ofSetColor(0, 0, 255);
-	ofDrawRectangle(0, 30, diffBlue, 10);
+	ofRect(0, 30, diffBlue, 10);
 }

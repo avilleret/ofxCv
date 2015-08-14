@@ -53,8 +53,8 @@ void ofApp::update() {
 void drawPoints(vector<ofVec2f>& points) {
 	ofNoFill();
 	for(int i = 0; i < points.size(); i++) {
-		ofDrawCircle(points[i], 10);
-		ofDrawCircle(points[i], 1);
+		ofCircle(points[i], 10);
+		ofCircle(points[i], 1);
 	}
 }
 
@@ -76,7 +76,7 @@ void ofApp::draw() {
 	drawPoints(rightPoints);
 	ofSetColor(128);
 	for(int i = 0; i < leftPoints.size(); i++) {
-		ofDrawLine(leftPoints[i], rightPoints[i]);
+		ofLine(leftPoints[i], rightPoints[i]);
 	}
 	
 	ofSetColor(255);
