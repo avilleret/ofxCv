@@ -9,7 +9,7 @@ Either clone out the source code using git:
 	> cd openFrameworks/addons/
 	> git clone https://github.com/kylemcdonald/ofxCv.git
 
-Or download the source from GitHub [here](https://github.com/kylemcdonald/ofxCv/archive/master.zip), unzip the folder, rename it from `ofxCv-master` to `ofxCv` and place it in your `openFrameworks/addons` folder.
+Or download the source from GitHub [here](https://github.com/kylemcdonald/ofxCv/archive/master.zip), unzip the folder, rename it from `ofxCv-master` to `ofxCv` and place it in your `openFrameworks/addons` folder. For some of the examples in 0.8.4, you will also need ofxAutoControlPanel which comes with [ofxControlPanel](https://github.com/kylemcdonald/ofxControlPanel)
 
 You don't need to move any of the examples anywhere, you can run them in place.
 
