@@ -571,7 +571,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/kyle/Documents/openFrameworks/addons/ofxOpenCv/libs/opencv/lib/osx,
+					../../../addons/ofxOpenCv/libs/opencv/lib/osx,
 				);
 				PRODUCT_NAME = ofAppDebug;
 				USER_HEADER_SEARCH_PATHS = "../libs/CLD/include/ ../libs/ofxCv/include/ ../../../addons/ofxOpenCv/libs/opencv/include/";
@@ -597,7 +597,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/kyle/Documents/openFrameworks/addons/ofxOpenCv/libs/opencv/lib/osx,
+					../../../addons/ofxOpenCv/libs/opencv/lib/osx,
 				);
 				PRODUCT_NAME = ofApp;
 				USER_HEADER_SEARCH_PATHS = "../libs/CLD/include/ ../libs/ofxCv/include/ ../../../addons/ofxOpenCv/libs/opencv/include/";
