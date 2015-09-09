@@ -6,8 +6,8 @@ using namespace cv;
 void ofApp::setup() {
 	ofSetVerticalSync(true);
 	
-	left.load("left.jpg");
-	right.load("right.jpg");
+	left.loadImage("left.jpg");
+	right.loadImage("right.jpg");
 	imitate(warpedColor, right);
 	
 	movingPoint = false;
