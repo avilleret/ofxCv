@@ -289,7 +289,7 @@ namespace ofxCv {
         this->fillFrame = fillFrame;
     }
     void Calibration::setSubpixelSize(int subpixelSize) {
-        subpixelSize = MAX(subpixelSize,2);
+        subpixelSize = std::max(subpixelSize,2);
         this->subpixelSize = cv::Size(subpixelSize,subpixelSize);
     }
     bool Calibration::add(Mat img) {

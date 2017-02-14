@@ -36,7 +36,7 @@ namespace ofxCv {
 			equalizeHist(graySmallMat, graySmallMat);
 		}
 		cv::Size minSize, maxSize;
-		float minSide = MIN(graySmallMat.rows, graySmallMat.cols);
+		float minSide = std::min(graySmallMat.rows, graySmallMat.cols);
 		if(minSizeScale > 0) {
 			int side = minSizeScale * minSide;
             minSize = cv::Size(side, side);
