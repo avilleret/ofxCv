@@ -1,5 +1,5 @@
 #include "ofxCv/Wrappers.h"
-
+#include <opencv2/calib3d.hpp>
 namespace ofxCv {
 	
 	using namespace cv;
@@ -51,28 +51,24 @@ namespace ofxCv {
 		return toOf(hull);
 	}
 	
-	// this should be replaced by c++ 2.0 api style code once available
 	std::vector<cv::Vec4i> convexityDefects(const std::vector<cv::Point>& contour) {
 		std::vector<int> hullIndices;
 		convexHull(Mat(contour), hullIndices, false, false);
-		std::vector<cv::Vec4i> convexityDefects;
+    std::vector<cv::Vec4i> res;
 		if(hullIndices.size() > 0 && contour.size() > 0) {		
-			CvMat contourMat = cvMat(1, contour.size(), CV_32SC2, (void*) &contour[0]);
-			CvMat hullMat = cvMat(1, hullIndices.size(), CV_32SC1, (void*) &hullIndices[0]);
-			CvMemStorage* storage = cvCreateMemStorage(0);
-			CvSeq* defects = cvConvexityDefects(&contourMat, &hullMat, storage);
-			for(int i = 0; i < defects->total; i++){
-				CvConvexityDefect* cur = (CvConvexityDefect*) cvGetSeqElem(defects, i);
-				cv::Vec4i defect;
-				defect[0] = cur->depth_point->x;
-				defect[1] = cur->depth_point->y;
-				defect[2] = (cur->start->x + cur->end->x) / 2;
-				defect[3] = (cur->start->y + cur->end->y) / 2;
-				convexityDefects.push_back(defect);
+      std::vector<Vec4i> defects;
+      convexityDefects(contour, hullIndices, defects);
+      res.reserve(defects.size());
+      for(auto& def : defects){
+        cv::Vec4i defect;
+        defect[0] = contour[def[3]].x;
+        defect[1] = contour[def[3]].y;
+        defect[2] = (contour[def[0]].x + contour[def[1]].x) / 2;
+        defect[3] = (contour[def[0]].y + contour[def[1]].y) / 2;
+        res.push_back(defect);
 			}
-			cvReleaseMemStorage(&storage);
 		}
-		return convexityDefects;
+    return res;
 	}
 	
 	std::vector<cv::Vec4i> convexityDefects(const ofPolyline& polyline) {
@@ -92,7 +88,7 @@ namespace ofxCv {
 	
 	void fitLine(const ofPolyline& polyline, glm::vec2& point, glm::vec2& direction) {
 		Vec4f line;
-		fitLine(Mat(toCv(polyline)), line, CV_DIST_L2, 0, .01, .01);
+    fitLine(Mat(toCv(polyline)), line, cv::DIST_L2, 0, .01, .01);
 
         direction = glm::vec2(line[0], line[1]);
         point = glm::vec2(line[2], line[3]);

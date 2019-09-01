@@ -24,6 +24,8 @@
 #include "ofRectangle.h"
 
 #include "ofxCv.h"
+#include <opencv2/objdetect.hpp>
+
 namespace ofxCv {
 	class ObjectFinder {
 	public:

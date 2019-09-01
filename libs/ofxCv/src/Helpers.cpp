@@ -2,6 +2,8 @@
 #include "ofxCv/Utilities.h"
 #include "ofGraphics.h"
 
+#include <opencv2/calib3d.hpp>
+
 namespace ofxCv {
 	
 	using namespace cv;

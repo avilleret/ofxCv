@@ -191,9 +191,9 @@ cv::name(xMat, yMat, resultMat);\
     void copyGray(const S& src, D& dst) {
         int channels = getChannels(src);
         if(channels == 4) {
-            convertColor(src, dst, CV_RGBA2GRAY);
+            convertColor(src, dst, cv::COLOR_RGBA2GRAY);
         } else if(channels == 3) {
-            convertColor(src, dst, CV_RGB2GRAY);
+            convertColor(src, dst, cv::COLOR_RGB2GRAY);
         } else if(channels == 1) {
             copy(src, dst);
         }
